@@ -75,4 +75,10 @@ exports.publish = function(data, opts, tutorials) {
     // finally, generate the tutorials, and copy static files to the output directory
     job.generateTutorials(tutorials)
         .copyStaticFiles();
+
+  return require('jsdoc-docset').createDocSet({
+    templateHelper: helper,
+    docletHelper: docletHelper,
+    opts: opts
+  });
 };
